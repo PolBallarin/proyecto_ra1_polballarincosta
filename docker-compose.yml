@@ -1,0 +1,14 @@
+services:
+  jupyter:                                                  # Nombre del servicio
+    build: .                                                # Construye imagen desde Dockerfile
+    container_name: etl-market-data                         # Nombre del contenedor
+    ports:
+      - "8888:8888"                                         # Puerto local:puerto contenedor
+    volumes:
+      - ./data/market_data.csv:/app/data/market_data.csv    # Solo CSV original
+      - ./notebooks:/app/notebooks                          # Notebooks ETL
+      - ./docs:/app/docs                                    # Documentación
+      - ./warehouse:/app/warehouse                          # Vacía, se genera con ETL
+    environment:
+      - JUPYTER_ENABLE_LAB=yes                              # Activa JupyterLab
+    restart: unless-stopped                                 # Reinicia si falla
