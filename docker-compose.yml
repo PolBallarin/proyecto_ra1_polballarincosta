@@ -5,10 +5,10 @@ services:
     ports:
       - "8888:8888"                                         # Puerto local:puerto contenedor
     volumes:
-      - ./data/market_data.csv:/app/data/market_data.csv    # Solo CSV original
+      - ./data:/app/data                                    # CSV
       - ./notebooks:/app/notebooks                          # Notebooks ETL
       - ./docs:/app/docs                                    # Documentación
-      - ./warehouse:/app/warehouse                          # Vacía, se genera con ETL
+      - ./warehouse:/app/warehouse                          # Aqui se guardarán los datos procesados
     environment:
       - JUPYTER_ENABLE_LAB=yes                              # Activa JupyterLab
     restart: unless-stopped                                 # Reinicia si falla
