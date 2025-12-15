@@ -1,0 +1,169 @@
+<mxfile host="app.diagrams.net" modified="2024-12-15T12:00:00.000Z" agent="Claude" etag="market-data-warehouse" version="22.1.0" type="device">
+  <diagram name="Star Schema - Market Data" id="market-data-model">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- FACT TABLE - Centro -->
+        <mxCell id="fact_header" value="fact_market_data" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="440" y="280" width="200" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_pk" value="fact_id (PK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=1;" vertex="1" parent="fact_header">
+          <mxGeometry y="26" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_fk1" value="asset_id (FK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=2;" vertex="1" parent="fact_header">
+          <mxGeometry y="46" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_fk2" value="date_id (FK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=2;" vertex="1" parent="fact_header">
+          <mxGeometry y="66" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_fk3" value="sector_id (FK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=2;" vertex="1" parent="fact_header">
+          <mxGeometry y="86" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_fk4" value="exchange_id (FK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=2;" vertex="1" parent="fact_header">
+          <mxGeometry y="106" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_fk5" value="currency_id (FK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=2;" vertex="1" parent="fact_header">
+          <mxGeometry y="126" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_fk6" value="country_id (FK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=2;" vertex="1" parent="fact_header">
+          <mxGeometry y="146" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_divider" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="fact_header">
+          <mxGeometry y="166" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_m1" value="open, close, high, low" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fact_header">
+          <mxGeometry y="174" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_m2" value="volume, market_cap" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fact_header">
+          <mxGeometry y="194" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_m3" value="daily_change" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fact_header">
+          <mxGeometry y="214" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_m4" value="daily_change_pct" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fact_header">
+          <mxGeometry y="234" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_m5" value="last_updated" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fact_header">
+          <mxGeometry y="254" width="200" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- DIM_ASSET - Arriba izquierda -->
+        <mxCell id="dim_asset_header" value="dim_asset" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="120" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_asset_pk" value="asset_id (PK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=1;" vertex="1" parent="dim_asset_header">
+          <mxGeometry y="26" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_asset_1" value="symbol" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="dim_asset_header">
+          <mxGeometry y="46" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_asset_2" value="name" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="dim_asset_header">
+          <mxGeometry y="66" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_asset_3" value="market_type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="dim_asset_header">
+          <mxGeometry y="86" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- DIM_DATE - Arriba derecha -->
+        <mxCell id="dim_date_header" value="dim_date" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="120" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_date_pk" value="date_id (PK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=1;" vertex="1" parent="dim_date_header">
+          <mxGeometry y="26" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_date_1" value="date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="dim_date_header">
+          <mxGeometry y="46" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_date_2" value="year, month, day" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="dim_date_header">
+          <mxGeometry y="66" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_date_3" value="weekday" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="dim_date_header">
+          <mxGeometry y="86" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- DIM_SECTOR - Izquierda -->
+        <mxCell id="dim_sector_header" value="dim_sector" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="360" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_sector_pk" value="sector_id (PK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=1;" vertex="1" parent="dim_sector_header">
+          <mxGeometry y="26" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_sector_1" value="sector_name" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="dim_sector_header">
+          <mxGeometry y="46" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- DIM_EXCHANGE - Derecha -->
+        <mxCell id="dim_exchange_header" value="dim_exchange" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="360" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_exchange_pk" value="exchange_id (PK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=1;" vertex="1" parent="dim_exchange_header">
+          <mxGeometry y="26" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_exchange_1" value="exchange_name" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="dim_exchange_header">
+          <mxGeometry y="46" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- DIM_CURRENCY - Abajo izquierda -->
+        <mxCell id="dim_currency_header" value="dim_currency" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="560" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_currency_pk" value="currency_id (PK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=1;" vertex="1" parent="dim_currency_header">
+          <mxGeometry y="26" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_currency_1" value="currency_name" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="dim_currency_header">
+          <mxGeometry y="46" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- DIM_COUNTRY - Abajo derecha -->
+        <mxCell id="dim_country_header" value="dim_country" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="560" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_country_pk" value="country_id (PK)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=1;" vertex="1" parent="dim_country_header">
+          <mxGeometry y="26" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_country_1" value="country_name" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="dim_country_header">
+          <mxGeometry y="46" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- RELACIONES (Flechas) -->
+        <!-- dim_asset -> fact -->
+        <mxCell id="rel1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=ERone;startFill=0;" edge="1" parent="1" source="dim_asset_header" target="fact_header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- dim_date -> fact -->
+        <mxCell id="rel2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=ERone;startFill=0;" edge="1" parent="1" source="dim_date_header" target="fact_header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- dim_sector -> fact -->
+        <mxCell id="rel3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=ERone;startFill=0;" edge="1" parent="1" source="dim_sector_header" target="fact_header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- dim_exchange -> fact -->
+        <mxCell id="rel4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=ERone;startFill=0;" edge="1" parent="1" source="dim_exchange_header" target="fact_header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- dim_currency -> fact -->
+        <mxCell id="rel5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=ERone;startFill=0;" edge="1" parent="1" source="dim_currency_header" target="fact_header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- dim_country -> fact -->
+        <mxCell id="rel6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=ERone;startFill=0;" edge="1" parent="1" source="dim_country_header" target="fact_header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Título -->
+        <mxCell id="title" value="Star Schema - Market Data Warehouse" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="30" width="280" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
